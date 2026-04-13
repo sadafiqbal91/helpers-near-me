@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpers Near Me | Premium Local Service Marketplace</title>
+    <meta name="description" content="Hire legally verified local workers easily. Quick, affordable, and reliable help for home, office, and industry.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Professional Background Layer -->
+    <div class="mesh-bg">
+        <div class="mesh-sphere"></div>
+        <div class="mesh-sphere sphere-2"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--accent); z-index: 2000; transition: width 0.1s;"></div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo-wrap">
+                <i class="ri-shield-user-fill"></i>
+                <span class="logo-text">HelpersNearMe</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#how-it-works">How it Works</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="hire-btn-nav">Find & Hire Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-tagline">Trusted by 2,000+ Households</span>
+                    <h1>Hire Elite Local Talent <br> <span style="color: var(--accent);">With Total Confidence.</span></h1>
+                    <p>Eliminate the uncertainty of hiring. Access a curated pool of legally verified, background-checked professionals for your domestic and commercial needs.</p>
+                    
+                    <!-- New Modern Search Bar -->
+                    <div class="search-container" style="max-width: 500px; margin: 0 auto 2rem; position: relative;">
+                        <input type="text" id="worker-search" placeholder="Search by name or skill (e.g. Driver, Cook)..." 
+                               style="width: 100%; padding: 0.8rem 1rem 0.8rem 3rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); color: white; font-size: 14px; outline: none; transition: var(--transition);">
+                        <i class="ri-search-line" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--accent);"></i>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#services" class="btn-primary">Explore Services</a>
+                        <a href="#how-it-works" class="btn-secondary">Our Vetting Process</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketplace Statistics -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">5,400+</span>
+                        <span class="stat-label">Verified Workers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12k+</span>
+                        <span class="stat-label">Successful Hires</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.2%</span>
+                        <span class="stat-label">Satisfaction Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support Access</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="section-padding">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Seamless Hiring in Four Simple Steps.</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 3rem;">Designed for speed, built for security.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <i class="ri-search-eye-line" style="font-size: 1.5rem; color: var(--accent);"></i>
+                        <h4 style="margin: 1rem 0 0.5rem;">Search & Filter</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary);">Browse through our extensive database of verified professionals based on your specific needs and location.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <i class="ri-user-follow-line" style="font-size: 1.5rem; color: var(--accent);"></i>
+                        <h4 style="margin: 1rem 0 0.5rem;">Review Profiles</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary);">Evaluate detailed profiles, verification history, and community ratings to find your perfect match.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <i class="ri-verified-badge-line" style="font-size: 1.5rem; color: var(--accent);"></i>
+                        <h4 style="margin: 1rem 0 0.5rem;">Secure Selection</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary);">Hire with peace of mind. Our small facilitation fee covers the entire legal and background verification check.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <i class="ri-star-smile-line" style="font-size: 1.5rem; color: var(--accent);"></i>
+                        <h4 style="margin: 1rem 0 0.5rem;">Onboard & Enjoy</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary);">Start your professional engagement. Not satisfied? Claim a 100% refund within the first 15 days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vetting Process Section -->
+        <section class="section-padding" style="background: rgba(255,255,255,0.02);">
+            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+                <div class="vetting-text">
+                    <span class="hero-tagline">Why we are different</span>
+                    <h2 style="margin-bottom: 1rem;">The Gold Standard of Worker Verification.</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 14px;">We don't just connect; we protect. Every worker on our platform undergoes a rigorous 5-point verification process before they ever reach your doorstep.</p>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-size: 13px;">
+                            <i class="ri-checkbox-circle-fill" style="color: var(--accent);"></i>
+                            <span>Government ID & Identity Authentication</span>
+                        </li>
+                        <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-size: 13px;">
+                            <i class="ri-checkbox-circle-fill" style="color: var(--accent);"></i>
+                            <span>Current & Permanent Address Verification</span>
+                        </li>
+                        <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-size: 13px;">
+                            <i class="ri-checkbox-circle-fill" style="color: var(--accent);"></i>
+                            <span>Criminal Record & Background Screening</span>
+                        </li>
+                        <li style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-size: 13px;">
+                            <i class="ri-checkbox-circle-fill" style="color: var(--accent);"></i>
+                            <span>Professional Reference Check</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="vetting-image" style="position: relative;">
+                    <div style="width: 100%; height: 300px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                         <i class="ri-shield-check-line" style="font-size: 6rem; color: var(--accent); opacity: 0.2;"></i>
+                         <div style="position: absolute; bottom: 20px; left: 20px; background: var(--bg-deep); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--accent);">
+                             <h4 style="color: var(--accent); font-size: 14px;">100% Verified</h4>
+                             <p style="font-size: 11px;">Every worker is legally cleared.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Services -->
+        <section id="services" class="section-padding bento-section">
+            <div class="container">
+                <div class="section-head" style="margin-bottom: 3rem;">
+                    <h2>Professional help for every need.</h2>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Select a category to find verified workers near you.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Domestic Workers (Featured) -->
+                    <a href="details.html?cat=domestic" class="bento-item item-lg">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" alt="Domestic Help" class="bento-img">
+                        <div class="overlay-dark"></div>
+                        <i class="ri-home-heart-line"></i>
+                        <h3>Domestic Workers</h3>
+                        <p>Cleaning, cooking, and general home assistance from trusted professionals.</p>
+                    </a>
+
+                    <!-- Office Workers -->
+                    <a href="details.html?cat=office" class="bento-item">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Office Helpers" class="bento-img">
+                        <div class="overlay-dark"></div>
+                        <i class="ri-building-line"></i>
+                        <h3>Office Helpers</h3>
+                        <p>Receptionists, office boys, and support.</p>
+                    </a>
+
+                    <!-- Drivers -->
+                    <a href="details.html?cat=drivers" class="bento-item">
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800" alt="Drivers" class="bento-img">
+                        <div class="overlay-dark"></div>
+                        <i class="ri-steering-2-line"></i>
+                        <h3>Permanent Drivers</h3>
+                        <p>Experienced personal & commercial drivers.</p>
+                    </a>
+
+                    <!-- Healthcare -->
+                    <a href="details.html?cat=healthcare" class="bento-item">
+                        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800" alt="Healthcare" class="bento-img">
+                        <div class="overlay-dark"></div>
+                        <i class="ri-heart-pulse-line"></i>
+                        <h3>Healthcare Workers</h3>
+                        <p>Patient care & elder assistance.</p>
+                    </a>
+
+                    <!-- Store/Retail -->
+                    <a href="details.html?cat=store" class="bento-item">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800" alt="Store Helpers" class="bento-img">
+                        <div class="overlay-dark"></div>
+                        <i class="ri-store-2-line"></i>
+                        <h3>Store Helpers</h3>
+                        <p>Reliable staff for retail needs.</p>
+                    </a>
+
+                    <!-- Factory -->
+                    <a href="details.html?cat=factory" class="bento-item">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Factory Workers" class="bento-img">
+                        <div class="overlay-dark"></div>
+                        <i class="ri-settings-4-line"></i>
+                        <h3>Factory Workers</h3>
+                        <p>Skilled and industrial labor.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Dynamic Worker Registry -->
+        <section id="registry" class="section-padding">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Verified Professionals <br> <span style="color: var(--accent);">Active Right Now.</span></h2>
+                    <p style="color: var(--text-secondary);">Direct access to the top-rated talent in our marketplace.</p>
+                </div>
+
+                <div id="worker-grid" class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                    <!-- Workers will be injected here by JavaScript -->
+                    <div class="loading-state" style="text-align: center; grid-column: 1/-1; padding: 4rem;">
+                        <i class="ri-loader-4-line ri-spin" style="font-size: 3rem; color: var(--accent);"></i>
+                        <p style="margin-top: 1rem; color: var(--text-secondary);">Accessing secure registry...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="padding: 4rem 0; background: #07090c; border-top: 1px solid var(--border);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+            <div class="footer-brand">
+                <div class="logo-wrap">
+                    <i class="ri-shield-user-fill"></i>
+                    <span class="logo-text">HelpersNearMe</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-top: 1rem; max-width: 300px;">Defining the future of local hiring with trust and verified connections.</p>
+            </div>
+            <div class="footer-links" style="display: flex; gap: 3rem;">
+                <div class="link-col">
+                    <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+                    <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: inherit; text-decoration: none;">How it works</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: inherit; text-decoration: none;">Verification Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: inherit; text-decoration: none;">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="link-col">
+                    <h4 style="margin-bottom: 1.5rem;">Legal</h4>
+                    <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: 0.8rem;">
+            &copy; 2025 HelpersNearMe. All rights reserved. Professional Service Finder.
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script>
+        // Scroll Progress Handler
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+
+            // Header Background Change
+            const header = document.querySelector('header');
+            if (winScroll > 50) {
+                header.style.background = 'rgba(10, 12, 16, 0.95)';
+                header.style.padding = '5px 0';
+            } else {
+                header.style.background = 'var(--glass)';
+                header.style.padding = '0';
+            }
+        };
+
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bento-item, .section-head, .step-card, .vetting-text, .vetting-image').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

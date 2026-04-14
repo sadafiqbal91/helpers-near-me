@@ -55,14 +55,16 @@ body::before {
 
 /* Deeper Mesh Gradient Background */
 .mesh-bg {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    /* Hero + Stats + How It Works tak extend karo */
+    height: calc(450px + 160px + 400px);
     z-index: -2;
     background: var(--bg-deep);
     overflow: hidden;
+    pointer-events: none;
 }
 
 .mesh-sphere {
@@ -285,6 +287,10 @@ header {
 }
 
 /* Stats Section */
+.stats-section {
+    padding: 2.5rem 0 2.5rem;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

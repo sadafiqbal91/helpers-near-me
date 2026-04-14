@@ -2,7 +2,7 @@ import { fetchWorkers } from './src/lib/data.controller.js';
 
 const workerGrid = document.getElementById('worker-grid');
 const searchInput = document.getElementById('worker-search');
-const categoryCards = document.querySelectorAll('.bento-item');
+const filterButtons = document.querySelectorAll('.filter-chip');
 
 let allWorkers = [];
 
@@ -40,25 +40,37 @@ function setupEventListeners() {
         });
     }
 
-    // Category Card Listeners
-    categoryCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const category = card.getAttribute('data-category');
-            
+    // Filter button listeners
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category') || 'all';
+
             // Scroll to registry
             const registrySection = document.getElementById('registry');
             if (registrySection) {
                 registrySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            
+
             // Filter and render
             filterAndRender('', category);
-            
-            // Highlight active category
-            categoryCards.forEach(c => c.style.borderColor = 'var(--border)');
-            card.style.borderColor = 'var(--accent)';
+            updateActiveFilterButton(category);
         });
     });
+
+    updateActiveFilterButton('all');
+}
+
+function updateActiveFilterButton(category) {
+    filterButtons.forEach(btn => {
+        btn.style.borderColor = 'var(--border)';
+        btn.style.background = 'var(--bg-card)';
+    });
+
+    const activeButton = Array.from(filterButtons).find(btn => btn.getAttribute('data-category') === category);
+    if (activeButton) {
+        activeButton.style.borderColor = 'var(--accent)';
+        activeButton.style.background = 'rgba(0, 220, 130, 0.08)';
+    }
 }
 
 function filterAndRender(searchTerm = '', category = 'all') {

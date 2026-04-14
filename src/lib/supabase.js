@@ -1,10 +1,10 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+// Supabase project URL
+const supabaseUrl = "https://mxwiawnjpciagwiyseat.supabase.co";
 
-if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn("Supabase credentials missing. Dynamic worker registry will be disabled.")
-}
+// ✅ Publishable (Anon) Key
+const supabaseAnonKey = "sb_publishable__Wd0J_rKiTOqecAVoXPJCA_f8KZN3p0";
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Create Supabase client
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);

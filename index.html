@@ -10,12 +10,6 @@
 </head>
 <body>
 
-    <!-- Professional Background Layer -->
-    <div class="mesh-bg">
-        <div class="mesh-sphere"></div>
-        <div class="mesh-sphere sphere-2"></div>
-    </div>
-
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--accent); z-index: 2000; transition: width 0.1s;"></div>
 
@@ -39,7 +33,13 @@
         </div>
     </header>
 
-    <main>
+    <main style="position: relative;">
+        <!-- Professional Background Layer: Hero to Seamless Hiring -->
+        <div class="mesh-bg">
+            <div class="mesh-sphere"></div>
+            <div class="mesh-sphere sphere-2"></div>
+        </div>
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-overlay"></div>
@@ -172,7 +172,7 @@
 
                 <div class="bento-grid">
                     <!-- Domestic Workers (Featured) -->
-                    <a href="details.html?cat=domestic" class="bento-item item-lg">
+                    <a href="details.html?cat=domestic" class="bento-item item-lg" data-category="Domestic Workers">
                         <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" alt="Domestic Help" class="bento-img">
                         <div class="overlay-dark"></div>
                         <i class="ri-home-heart-line"></i>
@@ -181,7 +181,7 @@
                     </a>
 
                     <!-- Office Workers -->
-                    <a href="details.html?cat=office" class="bento-item">
+                    <a href="details.html?cat=office" class="bento-item" data-category="Office Helpers">
                         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Office Helpers" class="bento-img">
                         <div class="overlay-dark"></div>
                         <i class="ri-building-line"></i>
@@ -190,7 +190,7 @@
                     </a>
 
                     <!-- Drivers -->
-                    <a href="details.html?cat=drivers" class="bento-item">
+                    <a href="details.html?cat=drivers" class="bento-item" data-category="Permanent Drivers">
                         <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800" alt="Drivers" class="bento-img">
                         <div class="overlay-dark"></div>
                         <i class="ri-steering-2-line"></i>
@@ -199,7 +199,7 @@
                     </a>
 
                     <!-- Healthcare -->
-                    <a href="details.html?cat=healthcare" class="bento-item">
+                    <a href="details.html?cat=healthcare" class="bento-item" data-category="Healthcare Workers">
                         <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800" alt="Healthcare" class="bento-img">
                         <div class="overlay-dark"></div>
                         <i class="ri-heart-pulse-line"></i>
@@ -208,7 +208,7 @@
                     </a>
 
                     <!-- Store/Retail -->
-                    <a href="details.html?cat=store" class="bento-item">
+                    <a href="details.html?cat=store" class="bento-item" data-category="Store Helpers">
                         <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800" alt="Store Helpers" class="bento-img">
                         <div class="overlay-dark"></div>
                         <i class="ri-store-2-line"></i>
@@ -217,7 +217,7 @@
                     </a>
 
                     <!-- Factory -->
-                    <a href="details.html?cat=factory" class="bento-item">
+                    <a href="details.html?cat=factory" class="bento-item" data-category="Factory Workers">
                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Factory Workers" class="bento-img">
                         <div class="overlay-dark"></div>
                         <i class="ri-settings-4-line"></i>
@@ -233,6 +233,15 @@
                 <div class="section-head">
                     <h2>Verified Professionals <br> <span style="color: var(--accent);">Active Right Now.</span></h2>
                     <p style="color: var(--text-secondary);">Direct access to the top-rated talent in our marketplace.</p>
+                </div>
+                <div class="filter-chip-group" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem;">
+                    <button type="button" class="filter-chip" data-category="all" style="border:1px solid var(--border);background:var(--bg-card);color:var(--text);padding:0.85rem 1rem;border-radius:999px;cursor:pointer;">All</button>
+                    <button type="button" class="filter-chip" data-category="Domestic Workers" style="border:1px solid var(--border);background:var(--bg-card);color:var(--text);padding:0.85rem 1rem;border-radius:999px;cursor:pointer;">Domestic</button>
+                    <button type="button" class="filter-chip" data-category="Office Helpers" style="border:1px solid var(--border);background:var(--bg-card);color:var(--text);padding:0.85rem 1rem;border-radius:999px;cursor:pointer;">Office</button>
+                    <button type="button" class="filter-chip" data-category="Permanent Drivers" style="border:1px solid var(--border);background:var(--bg-card);color:var(--text);padding:0.85rem 1rem;border-radius:999px;cursor:pointer;">Drivers</button>
+                    <button type="button" class="filter-chip" data-category="Healthcare Workers" style="border:1px solid var(--border);background:var(--bg-card);color:var(--text);padding:0.85rem 1rem;border-radius:999px;cursor:pointer;">Healthcare</button>
+                    <button type="button" class="filter-chip" data-category="Store Helpers" style="border:1px solid var(--border);background:var(--bg-card);color:var(--text);padding:0.85rem 1rem;border-radius:999px;cursor:pointer;">Store</button>
+                    <button type="button" class="filter-chip" data-category="Factory Workers" style="border:1px solid var(--border);background:var(--bg-card);color:var(--text);padding:0.85rem 1rem;border-radius:999px;cursor:pointer;">Factory</button>
                 </div>
 
                 <div id="worker-grid" class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">

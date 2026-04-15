@@ -6,11 +6,12 @@ const filterButtons = document.querySelectorAll('.filter-chip');
 
 let allWorkers = [];
 
+// 🚀 INIT
 async function initRegistry() {
     try {
         allWorkers = await fetchWorkers();
 
-        setupEventListeners(); // 👈 FIRST
+        setupEventListeners();
         renderWorkers(allWorkers);
 
         console.log("MAIN JS WORKING");
@@ -19,6 +20,7 @@ async function initRegistry() {
     }
 }
 
+// 🎯 EVENTS
 function setupEventListeners() {
 
     // 🔍 SEARCH
@@ -27,7 +29,6 @@ function setupEventListeners() {
             const searchTerm = e.target.value.toLowerCase();
             filterAndRender(searchTerm, 'all');
 
-            // ✅ Smooth scroll FIX
             if (searchTerm.length >= 2) {
                 const section = document.getElementById('registry');
                 if (section) {
@@ -39,7 +40,7 @@ function setupEventListeners() {
         });
     }
 
-    // 🎯 FILTER BUTTONS
+    // 🧩 FILTER BUTTONS
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const category = button.dataset.category || 'all';
@@ -54,15 +55,14 @@ function setupEventListeners() {
     });
 }
 
+// 🔍 FILTER LOGIC
 function filterAndRender(searchTerm = '', category = 'all') {
     let filtered = [...allWorkers];
 
-    // category filter
     if (category !== 'all') {
         filtered = filtered.filter(w => w.category === category);
     }
 
-    // search filter
     if (searchTerm) {
         filtered = filtered.filter(w =>
             w.name.toLowerCase().includes(searchTerm) ||
@@ -74,43 +74,68 @@ function filterAndRender(searchTerm = '', category = 'all') {
     renderWorkers(filtered);
 }
 
+// 🎨 PREMIUM CARD DESIGN (FIXED)
 function renderWorkers(workers) {
     if (!workerGrid) return;
 
     if (!workers.length) {
         workerGrid.innerHTML = `
-            <div style="text-align:center; padding:2rem;">
-                <p>No workers found</p>
+            <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                <p>No professionals found</p>
             </div>
         `;
         return;
     }
 
     workerGrid.innerHTML = workers.map(worker => `
-        <div class="worker-card" style="padding:15px; border:1px solid #ccc; border-radius:10px;">
-            
-            <!-- ✅ IMAGE FIX -->
-            <img src="${worker.image || 'https://via.placeholder.com/150'}" 
-                 alt="${worker.name}" 
-                 style="width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:10px;" />
+        <div class="worker-card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; transition: var(--transition);">
 
-            <h3>${worker.name}</h3>
-            <p>${worker.category}</p>
-            <p>${worker.experience}</p>
+            <div style="display:flex; gap:1rem; align-items:center; margin-bottom:1.2rem;">
+                <img src="${worker.image || 'https://via.placeholder.com/150'}"
+                     style="width:70px; height:70px; border-radius:50%; object-fit:cover; border:2px solid var(--accent);" />
+
+                <div>
+                    <h4 style="margin:0;">${worker.name}</h4>
+                    <span style="font-size:0.8rem; color:var(--accent);">
+                        ${worker.category}
+                    </span>
+                </div>
+            </div>
+
+            <div style="font-size:0.9rem; margin-bottom:1rem;">
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Experience</span>
+                    <strong>${worker.experience}</strong>
+                </div>
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Rating</span>
+                    <span style="color:#ffb700;">⭐ ${worker.rating || "4.5"}</span>
+                </div>
+            </div>
+
+            <div style="margin-bottom:1.5rem; display:flex; flex-wrap:wrap; gap:5px;">
+                ${(worker.skills || []).map(skill => `
+                    <span style="font-size:11px; padding:3px 6px; border:1px solid var(--border); border-radius:4px;">
+                        ${skill}
+                    </span>
+                `).join('')}
+            </div>
 
             <button onclick="connectWorker('${worker.name}', '${worker.category}')"
-                style="margin-top:10px; padding:8px 12px; cursor:pointer;">
+                style="width:100%; padding:10px; background:var(--accent); border:none; border-radius:6px; font-weight:bold; cursor:pointer;">
                 Book This Professional
             </button>
+
         </div>
     `).join('');
 }
 
-// 📲 WhatsApp Connect
+// 📲 WHATSAPP
 window.connectWorker = (name, role) => {
-    const msg = `Hi, I want to hire ${name} for ${role}`;
+    const msg = `Hello, I want to hire ${name} for ${role}`;
     window.open(`https://wa.me/923000000000?text=${encodeURIComponent(msg)}`);
 };
 
-// 🚀 Start app
+// START
 initRegistry();

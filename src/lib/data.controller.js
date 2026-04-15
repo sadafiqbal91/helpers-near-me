@@ -25,22 +25,10 @@ function generateFakeWorkers(count = 20) {
 }
 
 // 🔥 FETCH WORKERS
-export async function fetchWorkers(category = 'all') {
-    try {
-        const { data, error } = await supabase
-            .from('workers')
-            .select('*');
+    export async function fetchWorkers(category = 'all') {
+    console.warn("FORCE USING FAKE DATA 🔥");
 
-        if (error || !data || data.length === 0) {
-            console.warn("Using FAKE workers");
-            return filterWorkers(generateFakeWorkers(20), category);
-        }
-
-        return filterWorkers(mapWorkerData(data), category);
-    } catch (err) {
-        console.warn("Using FAKE workers (offline mode)");
-        return filterWorkers(generateFakeWorkers(20), category);
-    }
+    return filterWorkers(generateFakeWorkers(20), category);
 }
 
 // 🔥 SAVE BOOKING (same as before)

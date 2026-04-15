@@ -1,39 +1,30 @@
-// Mock data for initial professional state
-const MOCK_WORKERS = [
-    {
-        id: 1,
-        name: "Arjun Sharma",
-        category: "Domestic Workers",
-        experience: "6 Years",
-        rating: 4.9,
-        status: "Available",
-        skills: ["Housekeeping", "Cooking", "Deep Cleaning"],
-        image: "https://images.unsplash.com/photo-1540560340027-46b469837563?q=80&w=200&h=200&auto=format&fit=crop"
-    },
-    {
-        id: 2,
-        name: "Saira Khan",
-        category: "Healthcare Workers",
-        experience: "4 Years",
-        rating: 4.8,
-        status: "Available",
-        skills: ["Patient Care", "Elderly Support", "First Aid"],
-        image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=200&h=200&auto=format&fit=crop"
-    },
-    {
-        id: 3,
-        name: "Vikram Singh",
-        category: "Permanent Drivers",
-        experience: "8 Years",
-        rating: 5.0,
-        status: "Available",
-        skills: ["City Navigation", "Vehicle Maintenance", "Safety Expert"],
-        image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=200&h=200&auto=format&fit=crop"
-    }
-];
-
 import { supabase } from './supabase.js';
 
+// 🔥 Fake Data Generator
+function generateFakeWorkers(count = 20) {
+    const names = ["Ali", "Ahmed", "Sana", "Ayesha", "Usman", "Zara", "Bilal", "Hina"];
+    const categories = ["Domestic Workers", "Office Helpers", "Permanent Drivers", "Healthcare Workers"];
+    const skillsList = ["Cleaning", "Driving", "Cooking", "Office Work", "Patient Care"];
+
+    let workers = [];
+
+    for (let i = 0; i < count; i++) {
+        workers.push({
+            id: i + 1,
+            name: names[Math.floor(Math.random() * names.length)] + " Khan",
+            category: categories[Math.floor(Math.random() * categories.length)],
+            experience: Math.floor(Math.random() * 10) + " Years",
+            rating: (Math.random() * 5).toFixed(1),
+            status: "Available",
+            skills: [skillsList[Math.floor(Math.random() * skillsList.length)]],
+            image: `https://i.pravatar.cc/150?img=${i + 1}`
+        });
+    }
+
+    return workers;
+}
+
+// 🔥 FETCH WORKERS
 export async function fetchWorkers(category = 'all') {
     try {
         const { data, error } = await supabase
@@ -41,17 +32,18 @@ export async function fetchWorkers(category = 'all') {
             .select('*');
 
         if (error || !data || data.length === 0) {
-            console.warn("Using local professional registry (Mock Data)", error);
-            return filterWorkers(MOCK_WORKERS, category);
+            console.warn("Using FAKE workers");
+            return filterWorkers(generateFakeWorkers(20), category);
         }
 
         return filterWorkers(mapWorkerData(data), category);
     } catch (err) {
-        console.warn("Backend connection pending. Using professional mock registry.", err);
-        return filterWorkers(MOCK_WORKERS, category);
+        console.warn("Using FAKE workers (offline mode)");
+        return filterWorkers(generateFakeWorkers(20), category);
     }
 }
 
+// 🔥 SAVE BOOKING (same as before)
 export async function saveBooking(request) {
     try {
         const { data, error } = await supabase
@@ -60,22 +52,22 @@ export async function saveBooking(request) {
             .select();
 
         if (error) {
-            console.warn('Supabase booking save failed:', error);
             return { success: false, error: error.message || error };
         }
 
         return { success: true, data };
     } catch (err) {
-        console.warn('Booking request fallback active.', err);
         return { success: false, error: err.message || err };
     }
 }
 
+// 🔧 FILTER
 function filterWorkers(list, category) {
     if (category === 'all') return list;
     return list.filter(w => w.category === category);
 }
 
+// 🔧 MAP DATA
 function mapWorkerData(workers) {
     return workers.map(worker => ({
         id: worker.id,
@@ -85,6 +77,6 @@ function mapWorkerData(workers) {
         rating: worker.rating || worker.review_score || 0,
         status: worker.status || 'Available',
         skills: worker.skills || worker.skill_set || [],
-        image: worker.image || worker.photo_url || 'https://images.unsplash.com/photo-1540560340027-46b469837563?q=80&w=200&h=200&auto=format&fit=crop'
+        image: worker.image || worker.photo_url || `https://i.pravatar.cc/150?u=${worker.id}`
     }));
 }

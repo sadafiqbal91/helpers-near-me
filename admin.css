@@ -77,6 +77,32 @@ body::before {
     100% { transform: translate(-5%, 15%); }
 }
 
+/* Pulsing Background Diamond Nodes */
+.diamond-node {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px var(--accent);
+    z-index: -1;
+    pointer-events: none;
+    animation: pulse-glow 4s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        opacity: 0.2; 
+        transform: rotate(45deg) scale(0.8); 
+        box-shadow: 0 0 5px var(--accent);
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: rotate(45deg) scale(1.2); 
+        box-shadow: 0 0 15px var(--accent);
+    }
+}
+
 .admin-nav {
     background-color: var(--bg-card);
     padding: 1rem 2rem;

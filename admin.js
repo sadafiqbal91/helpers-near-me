@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://helpers-near-me-production.up.railway.app/api';
 
 // Utility helper to get Auth Headers
 function getAuthHeaders() {

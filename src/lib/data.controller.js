@@ -2,8 +2,8 @@
 export async function fetchWorkers(category = 'all') {
     try {
         const url = category === 'all' 
-            ? 'http://localhost:5000/api/workers' 
-            : `http://localhost:5000/api/workers?category=${encodeURIComponent(category)}`;
+            ? 'https://helpers-near-me-production.up.railway.app/api/workers' 
+            : `https://helpers-near-me-production.up.railway.app/api/workers?category=${encodeURIComponent(category)}`;
             
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch workers");
@@ -19,7 +19,7 @@ export async function fetchWorkers(category = 'all') {
 // 🔥 SAVE BOOKING (To new Express/MongoDB Backend)
 export async function saveBooking(request) {
     try {
-        const response = await fetch('http://localhost:5000/api/bookings', {
+        const response = await fetch('https://helpers-near-me-production.up.railway.app/api/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

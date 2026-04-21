@@ -1,4 +1,4 @@
-import { fetchWorkers } from './src/lib/data.controller.js';
+import { fetchWorkers, saveBooking } from './src/lib/data.controller.js';
 
 const workerGrid = document.getElementById('worker-grid');
 const searchInput = document.getElementById('worker-search');
@@ -131,11 +131,80 @@ function renderWorkers(workers) {
     `).join('');
 }
 
-// 📲 WHATSAPP
+// 📲 MODAL & WHATSAPP INTEGRATION
 window.connectWorker = (name, role) => {
-    const msg = `Hello, I want to hire ${name} for ${role}`;
-    window.open(`https://wa.me/923000000000?text=${encodeURIComponent(msg)}`);
+    // Open Modal
+    const modal = document.getElementById('booking-modal');
+    if (modal) {
+        document.getElementById('b-worker-name').value = name;
+        document.getElementById('b-category').value = role;
+        document.getElementById('b-message').value = `Hello, I want to hire ${name} for ${role}.`;
+        
+        modal.classList.add('active');
+    }
 };
+
+// Modal Close
+document.getElementById('close-modal-btn')?.addEventListener('click', () => {
+    document.getElementById('booking-modal').classList.remove('active');
+});
+
+// Form Submit
+document.getElementById('booking-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const btn = document.getElementById('b-submit-btn');
+    const statusDiv = document.getElementById('b-status');
+    const originalText = btn.innerText;
+
+    btn.innerText = 'Processing...';
+    btn.disabled = true;
+
+    const request = {
+        client_name: document.getElementById('b-name').value,
+        client_phone: document.getElementById('b-phone').value,
+        client_location: document.getElementById('b-location').value,
+        category: document.getElementById('b-category').value,
+        client_message: document.getElementById('b-message').value
+    };
+    
+    try {
+        const response = await saveBooking(request);
+        
+        if (response.success) {
+            statusDiv.style.color = '#00dc82';
+            statusDiv.innerText = 'Booking Sent Successfully! Redirecting to WhatsApp...';
+            
+            setTimeout(() => {
+                // Close modal
+                document.getElementById('booking-modal').classList.remove('active');
+                
+                // Reset form
+                e.target.reset();
+                btn.innerText = originalText;
+                btn.disabled = false;
+                statusDiv.innerText = '';
+                
+                // Open WhatsApp
+                const workerName = request.category; // fallback
+                const msg = `Hello, this is ${request.client_name}. ${request.client_message} My location: ${request.client_location}.`;
+                window.open(`https://wa.me/923000000000?text=${encodeURIComponent(msg)}`);
+            }, 1500);
+        } else {
+            statusDiv.style.color = 'red';
+            statusDiv.innerText = 'Failed: ' + response.error;
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
+    } catch (err) {
+        statusDiv.style.color = 'red';
+        statusDiv.innerText = 'An error occurred. Please try again.';
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }
+});
 
 // START
 initRegistry();
+
+

@@ -28,6 +28,7 @@
                 </ul>
             </nav>
             <div class="nav-actions">
+                <a href="admin.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-right: 1rem; transition: 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Admin</a>
                 <a href="#" class="hire-btn-nav">Find & Hire Now</a>
             </div>
         </div>
@@ -254,6 +255,45 @@
             </div>
         </section>
 
+        <!-- Booking Modal -->
+        <div id="booking-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button type="button" class="close-modal" id="close-modal-btn">&times;</button>
+                <div class="modal-header">
+                    <h3>Proceed with Booking</h3>
+                    <p>Secure this professional by instantly sending your details to them via our platform.</p>
+                </div>
+                <form id="booking-form">
+                    <input type="hidden" id="b-category" />
+                    <input type="hidden" id="b-worker-name" />
+                    
+                    <div class="form-group">
+                        <label>Your Full Name *</label>
+                        <input type="text" id="b-name" class="form-control" placeholder="e.g. Ali Khan" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="b-phone" class="form-control" placeholder="e.g. 0300 1234567" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Service Address / Location *</label>
+                        <input type="text" id="b-location" class="form-control" placeholder="e.g. DHA Phase 5, Lahore" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Details (Optional)</label>
+                        <textarea id="b-message" class="form-control" rows="3" placeholder="Tell us more about your needs..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-block" id="b-submit-btn">
+                        Confirm & Send via WhatsApp
+                    </button>
+                    <div id="b-status" style="margin-top: 10px; font-size: 13px; text-align: center;"></div>
+                </form>
+            </div>
+        </div>
     </main>
 
     <footer style="padding: 4rem 0; background: #07090c; border-top: 1px solid var(--border);">

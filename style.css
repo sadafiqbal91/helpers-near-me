@@ -55,7 +55,7 @@ body::before {
     z-index: 9999;
 }
 
-/* Global Layered Background */
+/* Global Premium Background */
 .mesh-bg {
     position: fixed;
     top: 0;
@@ -66,6 +66,27 @@ body::before {
     background: var(--bg-deep);
     overflow: hidden;
     pointer-events: none;
+}
+
+/* Video Container for Showcases */
+.video-container {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow);
+    position: relative;
+    margin: 0 auto 2rem;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* Geometric Network Pattern Layer - Enhanced Visibility */

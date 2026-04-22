@@ -574,3 +574,128 @@ header {
     font-size: 1rem; margin-top: 1rem;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- About Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to bottom right, #fff, var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-text p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.about-stat {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.about-stat h4 {
+    color: var(--accent);
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+}
+
+.about-stat p {
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* --- Contact Section --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+}
+
+.contact-info h2 {
+    font-size: 36px;
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: var(--accent);
+    background: rgba(0, 255, 163, 0.1);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+}
+
+.contact-item h4 {
+    font-size: 16px;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.contact-form-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.contact-form {
+    position: relative;
+    z-index: 1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+

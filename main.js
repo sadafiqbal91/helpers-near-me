@@ -204,6 +204,29 @@ document.getElementById('booking-form')?.addEventListener('submit', async (e) =>
     }
 });
 
+// 📩 CONTACT FORM HANDLER
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        const originalText = btn.innerText;
+        
+        btn.innerText = 'Sending...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+
+        // Simulate network delay for premium feel
+        setTimeout(() => {
+            alert('Thank you! Your message has been sent successfully. Our team will contact you soon.');
+            btn.innerText = originalText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            e.target.reset();
+        }, 1500);
+    });
+}
+
 // START
 initRegistry();
 

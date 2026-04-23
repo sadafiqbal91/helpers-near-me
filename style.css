@@ -535,6 +535,12 @@ header {
     transition: var(--transition);
 }
 
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.5rem;
+    }
+}
+
 .modal-overlay.active .modal-content {
     transform: translateY(0);
 }

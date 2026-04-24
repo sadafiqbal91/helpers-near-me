@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node helpers-backend/server.js",
     "dev": "vite",
     "server": "node helpers-backend/server.js",
     "build": "vite build",

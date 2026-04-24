@@ -1,4 +1,4 @@
-const API_URL = 'https://helpers-near-me-production.up.railway.app/api';
+const API_URL = 'https://helpers-near-me.vercel.app/api';
 
 // Utility helper to get Auth Headers
 function getAuthHeaders() {

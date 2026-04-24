@@ -20,7 +20,11 @@ if (!process.env.MONGO_URI) {
 const app = express();
 
 // Middleware
-app.use(cors()); // Allows frontend to communicate with backend
+app.use(cors({
+    origin: ['https://sadafiqbal91.github.io', 'http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:5173'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json()); // Allows parsing JSON bodies in requests
 
 // Frontend files serve karna (root folder se)
